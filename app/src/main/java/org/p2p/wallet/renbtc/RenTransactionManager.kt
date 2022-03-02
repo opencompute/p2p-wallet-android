@@ -15,6 +15,7 @@ import org.p2p.wallet.infrastructure.network.provider.TokenKeyProvider
 import org.p2p.wallet.renbtc.model.RenBTCPayment
 import org.p2p.wallet.renbtc.model.RenTransaction
 import org.p2p.wallet.renbtc.model.RenTransactionStatus
+import org.p2p.wallet.renbtc.repository.RenBTCLocalRepository
 import org.p2p.wallet.renbtc.repository.RenBTCRepository
 import org.p2p.wallet.renbtc.service.RenStatusExecutor
 import org.p2p.wallet.renbtc.service.RenTransactionExecutor
@@ -31,6 +32,7 @@ private const val SESSION_POLLING_DELAY = 5000L
 
 class RenTransactionManager(
     private val repository: RenBTCRepository,
+    private val localRepository: RenBTCLocalRepository,
     private val tokenKeyProvider: TokenKeyProvider,
     private val environmentManager: EnvironmentManager
 ) {
@@ -86,7 +88,6 @@ class RenTransactionManager(
         }
     }
 
-    fun getAllTransactions(): List<RenTransaction> = queuedTransactions
 
     fun getTransactionStatuses(transactionId: String): List<RenTransactionStatus>? {
         val transaction = queuedTransactions.firstOrNull { it.transactionId == transactionId }

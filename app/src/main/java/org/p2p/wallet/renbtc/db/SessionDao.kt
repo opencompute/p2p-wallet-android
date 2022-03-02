@@ -5,6 +5,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import kotlinx.coroutines.flow.Flow
+import org.p2p.wallet.renbtc.model.RenTransactionStatus
 
 @Dao
 interface SessionDao {

@@ -12,7 +12,7 @@ import org.p2p.wallet.home.db.TokenEntity
 @Database(
     entities = [
         TokenEntity::class,
-        SessionEntity::class
+        SessionEntity::class,
     ],
     version = DATABASE_VERSION,
     exportSchema = false

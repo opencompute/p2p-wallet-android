@@ -25,7 +25,7 @@ class RenStatusExecutor(
     }
 
     init {
-        setStatus(WaitingDepositConfirm(transaction.payment.transactionHash))
+        setStatus(WaitingDepositConfirm(transaction.payment.transationHash))
     }
 
     override fun getTransactionHash(): String = transaction.payment.transactionHash
